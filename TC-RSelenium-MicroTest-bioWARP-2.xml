@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RSeleniumTest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="./RSeleniumTest.xsd">
+  <ID>TC02 bioWARP specific tests</ID>
+  <synopsis>
+    <version />
+    <author>Sebastian Wolf</author>
+    <description>Test the Field Drag and drop functionality
+    </description>
+    <change-history>
+      <change author="SW" date="2017-04-24" />
+    </change-history>
+  </synopsis>
+  <input-data>
+    <variable name="vector" value="5"></variable>
+  </input-data>
+  <tests>
+    <UITest test-desc="go to bioWARP Page">
+      <initialize>
+        <url>https://www.recreation.gov/permits/233260/</url>
+        <driver_location>C:/Programme_2/RSelenium/selenium-server-standalone-3.141.59.jar
+        </driver_location>
+        <ie_driver_folder>C:/Programme_2/RSelenium</ie_driver_folder>
+        <browser>chrome</browser>
+        <testspec>
+          <execution execution-type="silent" />
+          <return-value>
+            <element name="xx" tolerance="1E-7" />
+          </return-value>
+        </testspec>
+      </initialize>
+    </UITest>
+    <UITest>
+      <wait>
+        <time_in_ms>5000</time_in_ms>
+        <testspec>
+          <execution execution-type="silent" />
+        </testspec>
+      </wait>
+    </UITest>
+    <UITest test-desc="Click Devision select">
+      <click_element>
+        <params>
+          <element type="id" value="division-selection-select" />
+          <find>0</find>
+          <iframe>0</iframe>
+        </params>
+        <testspec>
+          <execution execution-type="silent" />
+        </testspec>
+      </click_element>
+    </UITest>
+    <UITest test-desc="Click Devision select">
+      <click_element>
+        <params>
+          <element type="css selector" value=".rec-select-option-button" />
+          <find>0</find>
+          <iframe>0</iframe>
+          <text>Mt. Whitney Day Use (All Routes)</text>
+          <find>1</find>
+        </params>
+        <testspec>
+          <execution execution-type="silent" />
+        </testspec>
+      </click_element>
+    </UITest>
+    <UITest>
+    <wait>
+    <time_in_ms>2000</time_in_ms>
+    </wait>
+    </UITest>
+    <UITest>
+    <enter_text spec-id="FUN01">
+        <params>
+          <element type="id" value="number-input-" />
+          <iframe>0</iframe>
+          <value>1</value>
+          <visibility>0</visibility>
+        </params>
+        <testspec>
+          <execution execution-type="error" />
+        </testspec>
+      </enter_text>
+    </UITest>
+    <UITest test-desc="Click Devision select">
+      <click_element>
+        <params>
+          <element type="css selector" value=".DayPickerNavigation__next" />
+          <find>0</find>
+          <iframe>0</iframe>
+        </params>
+        <testspec>
+          <execution execution-type="silent" />
+        </testspec>
+      </click_element>
+    </UITest>
+    <UITest test-desc="Click Devision select">
+      <click_element>
+        <params>
+          <element type="css selector" value=".DayPickerNavigation__next" />
+          <find>0</find>
+          <iframe>0</iframe>
+        </params>
+        <testspec>
+          <execution execution-type="silent" />
+        </testspec>
+      </click_element>
+    </UITest>
+    <UITest test-desc="Click Devision select">
+      <click_element>
+        <params>
+          <element type="css selector" value=".DayPickerNavigation__next" />
+          <find>0</find>
+          <iframe>0</iframe>
+        </params>
+        <testspec>
+          <execution execution-type="silent" />
+        </testspec>
+      </click_element>
+    </UITest>
+    <UITest test-desc="Check Title">
+      <get_text>
+        <params>
+          <element type="css selector" value=".rec-available-day" />
+          <iframe>0</iframe>
+          <which>1</which>
+        </params>
+        <testspec>
+          <execution execution-type="silent" />
+          <return-value diff-type="absolute" />
+          <reference>
+            <element>20</element>
+            <element>A</element>
+          </reference>
+        </testspec>
+      </get_text>
+    </UITest>
+    <UITest>
+      <close>
+        <testspec />
+      </close>
+    </UITest>
+  </tests>
+</RSeleniumTest>
