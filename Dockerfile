@@ -16,4 +16,4 @@ RUN apt-get update -qq \
   python-pip
 
 RUN pip install pytest-shutil
-RUN pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
+RUN pip install --upgrade numpy google-api-python-client google-auth-httplib2 google-auth-oauthlib
