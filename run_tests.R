@@ -1,7 +1,7 @@
-setwd("C:/_wolfs25/git/mtwhitney")
-library(tcltk)
+#setwd("C:/_wolfs25/git/mtwhitney")
+#library(tcltk)
 
-Sys.setenv("JAVA_HOME" = "C:/Program Files/Java/jdk1.8.0_201")
+#Sys.setenv("JAVA_HOME" = "C:/Program Files/Java/jdk1.8.0_201")
 
 library(RSelenium)
 library(gmailr)
