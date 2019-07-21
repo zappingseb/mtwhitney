@@ -23,7 +23,7 @@ RUN apt-get install -y libfontconfig1 libfontconfig1-dev
 RUN wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.8-linux-x86_64.tar.bz2
 RUN tar xvjf phantomjs-1.9.8-linux-x86_64.tar.bz2
 RUN mv phantomjs-1.9.8-linux-x86_64 /usr/local/share
-RUN ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin
+RUN ln -sf /usr/local/share/phantomjs-1.9.8-linux-x86_64/bin/phantomjs /usr/local/bin
 RUN phantomjs --webdriver=4444
 
 COPY RSelenium.R /tmp/RSelenium.R
