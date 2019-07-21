@@ -13,7 +13,7 @@ COPY run_tests.R /tmp/run_tests.R
 
 RUN apt-get update -qq \
   && apt-get install -y \
-  install python3.6 \
+  python3.6 \
   python-pip
 
 RUN pip install pytest-shutil
