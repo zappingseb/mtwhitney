@@ -1,5 +1,5 @@
 # alpine-python-ecmwfapi
-FROM r-devel
+FROM rocker/tidyverse:3.6.0
 
 MAINTAINER zappingseb "sebastian@mail-wolf.de"
 
