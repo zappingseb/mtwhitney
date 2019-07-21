@@ -15,6 +15,7 @@ sink("my_log.txt")
 #    browserName = "chrome"
 #    )
 print("Open Driver")
+system("phantomjs --webdriver=4444")
 remDr <- remoteDriver(browserName = "phantomjs")
 
 print("remDr$open")
