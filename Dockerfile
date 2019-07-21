@@ -7,8 +7,6 @@ WORKDIR /usr/src/app
 
 RUN R -e "install.packages('RSelenium', repos='https://cran.rstudio.com/') "
 
-COPY RSelenium.R /tmp/RSelenium.R
-COPY run_tests.R /tmp/run_tests.R
 
 
 RUN apt-get update -qq \
@@ -17,3 +15,6 @@ RUN apt-get update -qq \
 
 RUN pip install pytest-shutil
 RUN pip install --upgrade numpy google-api-python-client google-auth-httplib2 google-auth-oauthlib
+
+COPY RSelenium.R /tmp/RSelenium.R
+COPY run_tests.R /tmp/run_tests.R

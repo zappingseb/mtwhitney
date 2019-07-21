@@ -10,11 +10,14 @@ source("RSelenium.R")
 
 sink("my_log.txt")
 
-init_RSelenium("https://www.recreation.gov/permits/233260/",
-    driver_location = "C:/Programme_2/RSelenium/selenium-server-standalone-3.141.59.jar",
-    ie_driver_folder = "C:/Programme_2/RSelenium",
-    browserName = "chrome"
-    )
+#init_RSelenium("https://www.recreation.gov/permits/233260/",
+#    driver_location = "C:/Programme_2/RSelenium/selenium-server-standalone-3.141.59.jar",
+#    ie_driver_folder = "C:/Programme_2/RSelenium",
+#    browserName = "chrome"
+#    )
+remDr <- remoteDriver(port = 4445L)
+remDr$open()
+remDr$navigate("https://www.recreation.gov/permits/233260/")
 
 Sys.sleep(8)
 
