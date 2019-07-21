@@ -12,7 +12,7 @@ COPY run_tests.R /tmp/run_tests.R
 
 
 RUN apt-get update -qq \
-  && apt-get install -t unstable -y --no-install-recommends \
+  && apt-get install -y \
   install python3.6 \
   python-pip
 
