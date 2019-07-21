@@ -4,7 +4,6 @@
 #Sys.setenv("JAVA_HOME" = "C:/Program Files/Java/jdk1.8.0_201")
 
 library(RSelenium)
-library(gmailr)
 
 source("RSelenium.R")
 
@@ -15,8 +14,13 @@ sink("my_log.txt")
 #    ie_driver_folder = "C:/Programme_2/RSelenium",
 #    browserName = "chrome"
 #    )
+print("Open Driver")
 remDr <- remoteDriver(port = 4445L)
+
+print("remDr$open")
 remDr$open()
+
+print("navigate")
 remDr$navigate("https://www.recreation.gov/permits/233260/")
 
 Sys.sleep(8)
