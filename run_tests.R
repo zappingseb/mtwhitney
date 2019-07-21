@@ -15,7 +15,7 @@ sink("my_log.txt")
 #    browserName = "chrome"
 #    )
 print("Open Driver")
-remDr <- remoteDriver(port = 4445L)
+remDr <- remoteDriver(remoteServerAddr = "seleniumcontainer", port = 4444L, browserName = "chrome")
 
 print("remDr$open")
 remDr$open()
