@@ -70,7 +70,7 @@ def main():
         with open('token.pickle', 'wb') as token:
             pickle.dump(creds, token)
 
-    service = build('gmail', 'v1', credentials=creds)
+    service = build('gmail', 'v1', credentials = creds)
 
     message = np.loadtxt("output.txt")
 
