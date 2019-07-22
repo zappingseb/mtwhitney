@@ -14,7 +14,7 @@ RUN apt-get update -qq \
   python-pip
 
 RUN pip install pytest-shutil
-RUN pip install --upgrade numpy google-api-python-client google-auth-httplib2 google-auth-oauthlib
+RUN pip install --upgrade numpy smtplib email
 
 RUN apt-get install -y build-essential chrpath libssl-dev libxft-dev
 RUN apt-get install -y libfreetype6 libfreetype6-dev
@@ -27,5 +27,6 @@ RUN ln -sf /usr/local/share/phantomjs-1.9.8-linux-x86_64/bin/phantomjs /usr/loca
 
 COPY RSelenium.R /tmp/RSelenium.R
 COPY run_tests.R /tmp/run_tests.R
+COPY sendmail.py /tmp/sendmail.py
 
 RUN apt-get install -y vim

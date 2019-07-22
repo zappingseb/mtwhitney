@@ -70,5 +70,4 @@ tryCatch({
   remDr$close()
 })
 
-
-
+system("python sendmail.py")
