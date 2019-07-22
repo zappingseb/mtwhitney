@@ -7,7 +7,7 @@ source("RSelenium.R")
 sink("my_log.txt")
 
 print("Open Driver")
-remDr <- remoteDriver(remoteServerAddr = "seleniumcontainer", browserName = "phantomjs")
+remDr <- remoteDriver(remoteServerAddr = "seleniumcontainer", browserName = "chrome")
 
 print("remDr$open")
 remDr$open()
@@ -33,33 +33,40 @@ tryCatch({
   el_3[[1]]$sendKeysToElement(list("1"))
 
   message("get Month")
-  month_elem <- remDr$findElements("id", "CalendarMonth__caption")
+  month_elem <- remDr$findElements("css selector", "#CalendarMonth__caption strong")
 
-  month <- month_elem[[1]]$getElementText()
+  month <- month_elem[[2]]$getElementText()
 
   message("Month while start")
   while(!grepl("October", month)) {
     el_4 <- remDr$findElements("css selector", ".DayPickerNavigation__next")
-    el_4[[2]]$clickElement()
+    el_4[[1]]$clickElement()
+
+    Sys.sleep(1)
     month_elem <- remDr$findElements("id", "CalendarMonth__caption")
-    month <- month_elem[[1]]$getElementText()
+    month <- month_elem[[2]]$getElementText()
+    print(month)
   }
 
   message("Read Early day")
   day_elem <- remDr$findElements("css selector", ".rec-available-day")[[1]]
-  earliest_day <- day_elem$getElementText()
+  earliest_day <- strsplit(day_elem$getElementText()[[1]], split = "\n")[[1]][1]
 
   sink()
+
+  remDr$close()
 
   log <- readLines("my_log.txt")
 
   fileConn<-file("output.txt")
-  writeLines(paste0("The earliest day for Mnt Whitney in October is: ",
+  writeLines(paste0("The earliest day for Mnt Whitney in", month[[1]], "is: ",
           earliest_day, "th of October 2019.\n\n-------------------\nLOG:\n", paste(log, collapse = "\n")), con = fileConn)
   close(fileConn)
 
 
 }, error = function(e){
+  print(e)
+  sink()
   remDr$close()
 })
 
