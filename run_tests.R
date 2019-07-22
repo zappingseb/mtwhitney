@@ -1,7 +1,4 @@
-setwd("C:/_wolfs25/git/mtwhitney")
 #library(tcltk)
-
-Sys.setenv("JAVA_HOME" = "C:/Program Files/Java/jdk1.8.0_201")
 
 library(RSelenium)
 
@@ -10,7 +7,7 @@ source("RSelenium.R")
 sink("my_log.txt")
 
 print("Open Driver")
-remDr <- remoteDriver(browserName = "phantomjs")
+remDr <- remoteDriver(remoteServerAddr = "seleniumcontainer", browserName = "phantomjs")
 
 print("remDr$open")
 remDr$open()
@@ -21,14 +18,19 @@ remDr$navigate("https://www.recreation.gov/permits/233260/")
 Sys.sleep(8)
 tryCatch({
   el_1 <- remDr$findElements("id", "division-selection-select")
-  el_1$clickElement()
+  el_1[[1]]$clickElement()
   el_2 <- remDr$findElements("css selector", ".rec-select-option-button")
   el_2[[2]]$clickElement()
   Sys.sleep(1)
 
   message("Enter Text")
   el_3 <- remDr$findElements("id", "number-input-")
-  el_3[[1]]$sendKeysToElement("1")
+  remDr$executeScript(
+      paste0("arguments[0].setAttribute('value','",
+          "1","');"),
+      list(el_3[[1]]))
+  el_3[[1]]$clearElement()
+  el_3[[1]]$sendKeysToElement(list("1"))
 
   message("get Month")
   month_elem <- remDr$findElements("id", "CalendarMonth__caption")
