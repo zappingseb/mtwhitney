@@ -5,28 +5,20 @@ MAINTAINER zappingseb "sebastian@mail-wolf.de"
 
 WORKDIR /usr/src/app
 
-RUN R -e "install.packages(c('RSelenium','mailR'), repos='https://cran.rstudio.com/') "
-
-
+RUN R -e "install.packages(c('RSelenium'), repos='https://cran.rstudio.com/') "
 
 RUN apt-get update -qq \
   && apt-get install -y \
-  python-pip
+  python-pip \
+  vim
 
 RUN pip install pytest-shutil
 RUN pip install --upgrade numpy secure-smtplib email
-
-RUN apt-get install -y build-essential chrpath libssl-dev libxft-dev
-RUN apt-get install -y libfreetype6 libfreetype6-dev
-RUN apt-get install -y libfontconfig1 libfontconfig1-dev
-
-RUN wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.8-linux-x86_64.tar.bz2
-RUN tar xvjf phantomjs-1.9.8-linux-x86_64.tar.bz2
-RUN mv phantomjs-1.9.8-linux-x86_64 /usr/local/share
-RUN ln -sf /usr/local/share/phantomjs-1.9.8-linux-x86_64/bin/phantomjs /usr/local/bin
 
 COPY RSelenium.R /tmp/RSelenium.R
 COPY run_tests.R /tmp/run_tests.R
 COPY sendmail.py /tmp/sendmail.py
 
-RUN apt-get install -y vim
+RUN apt-get update && apt-get -y install cron
+RUN echo "0 */12 * * * root Rscript /tmp/run_tests.R" >> /etc/crontab
+RUN service cron start

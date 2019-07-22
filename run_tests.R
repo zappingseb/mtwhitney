@@ -2,9 +2,9 @@
 
 library(RSelenium)
 
-source("RSelenium.R")
+source("/tmp/RSelenium.R")
 
-sink("my_log.txt")
+sink("/tmp/my_log.txt")
 
 print("Open Driver")
 remDr <- remoteDriver(remoteServerAddr = "seleniumcontainer", browserName = "chrome")
@@ -56,9 +56,9 @@ tryCatch({
 
   remDr$close()
 
-  log <- readLines("my_log.txt")
+  log <- readLines("/tmp/my_log.txt")
 
-  fileConn<-file("output.txt")
+  fileConn<-file("/tmp/output.txt")
   writeLines(paste0("The earliest day for Mnt Whitney in", month[[1]], " is: ",
           earliest_day, "th of October 2019.\n\n-------------------\nLOG:\n", paste(log, collapse = "\n")), con = fileConn)
   close(fileConn)
@@ -70,4 +70,4 @@ tryCatch({
   remDr$close()
 })
 
-system("python sendmail.py")
+system("python /tmp/sendmail.py")
