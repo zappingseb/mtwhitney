@@ -14,7 +14,7 @@ RUN apt-get update -qq \
   python-pip
 
 RUN pip install pytest-shutil
-RUN pip install --upgrade numpy smtplib email
+RUN pip install --upgrade numpy secure-smtplib email
 
 RUN apt-get install -y build-essential chrpath libssl-dev libxft-dev
 RUN apt-get install -y libfreetype6 libfreetype6-dev
