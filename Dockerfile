@@ -5,7 +5,7 @@ MAINTAINER zappingseb "sebastian@mail-wolf.de"
 
 WORKDIR /usr/src/app
 
-RUN R -e "install.packages('RSelenium', repos='https://cran.rstudio.com/') "
+RUN R -e "install.packages(c('RSelenium','mailR'), repos='https://cran.rstudio.com/') "
 
 
 
