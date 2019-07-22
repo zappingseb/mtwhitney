@@ -27,5 +27,6 @@ RUN ln -sf /usr/local/share/phantomjs-1.9.8-linux-x86_64/bin/phantomjs /usr/loca
 
 COPY RSelenium.R /tmp/RSelenium.R
 COPY run_tests.R /tmp/run_tests.R
+COPY send_mail.py /tmp/send_mail.py
 
 RUN apt-get install -y vim

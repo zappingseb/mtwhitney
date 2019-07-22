@@ -59,7 +59,7 @@ tryCatch({
   log <- readLines("my_log.txt")
 
   fileConn<-file("output.txt")
-  writeLines(paste0("The earliest day for Mnt Whitney in", month[[1]], "is: ",
+  writeLines(paste0("The earliest day for Mnt Whitney in", month[[1]], " is: ",
           earliest_day, "th of October 2019.\n\n-------------------\nLOG:\n", paste(log, collapse = "\n")), con = fileConn)
   close(fileConn)
 
