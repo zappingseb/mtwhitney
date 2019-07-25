@@ -4,6 +4,7 @@ library(RSelenium)
 
 source("/tmp/RSelenium.R")
 
+file.remove("/tmp/my_log.txt")
 sink("/tmp/my_log.txt")
 
 print("Open Driver")
@@ -49,8 +50,12 @@ tryCatch({
   }
 
   message("Read Early day")
-  day_elem <- remDr$findElements("css selector", ".rec-available-day")[[1]]
-  earliest_day <- strsplit(day_elem$getElementText()[[1]], split = "\n")[[1]][1]
+  day_elem <- remDr$findElements("css selector", ".rec-available-day")
+  if (length(day_elem) < 1) {
+    earliest_day <- "NODAY"
+  } else {
+    earliest_day <- strsplit(day_elem[[1]]$getElementText()[[1]], split = "\n")[[1]][1]
+  }
 
   sink()
 
