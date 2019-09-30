@@ -33,4 +33,10 @@ docker build --net mynet --name mtwhitney -f Dockerfile .
 docker run -it mtwhitney /bin/bash
 ```
 
+inside the container run:
+
+```
+sudo Rscript /tmp/run_tests.R
+```
+
 disconnect by `Crtl + p` and `Crtl + q`
