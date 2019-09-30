@@ -73,6 +73,10 @@ tryCatch({
     }, error = function(e){
       print(e)
       sink()
+      fileConn <- file("/tmp/output.txt")
+      log <- readLines("/tmp/my_log.txt")
+      writeLines(paste0("ERROR while crawling.\n\n-------------------\nLOG:\n", paste(log, collapse = "\n")), con = fileConn)
+      close(fileConn)
       remDr$close()
     })
 
