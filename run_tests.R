@@ -18,9 +18,9 @@ remDr$navigate("https://www.recreation.gov/permits/233260/")
 
 Sys.sleep(8)
 tryCatch({
-  el_1 <- remDr$findElements("id", "division-selection-select")
+  el_1 <- remDr$findElements("id", "division-selection")
   el_1[[1]]$clickElement()
-  el_2 <- remDr$findElements("css selector", ".rec-select-option-button")
+  el_2 <- remDr$findElements("css selector", "option[value=406]")
   el_2[[2]]$clickElement()
   Sys.sleep(1)
 
