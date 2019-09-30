@@ -18,6 +18,6 @@ msg['To'] = "zappingseb@googlemail.com"
 
 # Send the message via our own SMTP server, but don't include the
 # envelope header.
-s = smtplib.SMTP('wp1097223.server-he.de', 587).login("wp1097223-157553", "PASSWORD")
+s = smtplib.SMTP('<SMTP>', 587).login("<LOGIN>", "<PASSWORD>")
 s.sendmail("info@mail-wolf.de", ["zappingseb@googlemail.com"], msg.as_string())
 s.quit()
