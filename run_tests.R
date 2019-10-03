@@ -2,7 +2,6 @@
 
 library(RSelenium)
 
-source("/tmp/RSelenium.R")
 file.remove("/tmp/my_log.txt")
 file.remove("/tmp/output.txt")
 
