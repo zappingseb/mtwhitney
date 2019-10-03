@@ -15,7 +15,6 @@ RUN apt-get update -qq \
 RUN pip install pytest-shutil
 RUN pip install --upgrade numpy secure-smtplib email
 
-COPY RSelenium.R /tmp/RSelenium.R
 COPY run_tests.R /tmp/run_tests.R
 COPY sendmail.py /tmp/sendmail.py
 
