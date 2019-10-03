@@ -1,4 +1,6 @@
-# Crawling Mt Whitney Slots
+# Crawling Mt Whitney Permits
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Mount_Whitney_2003-03-25.jpg/640px-Mount_Whitney_2003-03-25.jpg)
 
 This repository enables to crawl the slots
 on Mount Whitney on its website at: [https://www.recreation.gov/permits/233260/](https://www.recreation.gov/permits/233260)
